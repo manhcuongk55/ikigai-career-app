@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="IKIGAI - Bài test hướng nghiệp theo phương pháp Ikigai Nhật Bản. Khám phá ngành nghề phù hợp và tìm mentor đồng hành.">
+  <title>IKIGAI | Test Hướng Nghiệp & Tìm Mentor</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+  </div>
+
+  <div class="app-container">
+
+    <!-- ===================== SCREEN 1: INTRO ===================== -->
+    <div id="screen-intro" class="screen active">
+      <!-- Hero Ikigai Brand -->
+      <div class="ikigai-hero">
+        <div class="ikigai-brand">
+          <span class="ikigai-logo-text">IKIGAI</span>
+          <span class="ikigai-logo-jp">生き甲斐</span>
+        </div>
+        <div class="ikigai-tagline">Lý do để bạn thức dậy mỗi sáng</div>
+      </div>
+
+      <div class="header" style="padding-top:0;">
+        <h1>Khám Phá <span>Con Đường<br>Nghề Nghiệp</span> Của Bạn</h1>
+        <p>Bài test <strong class="ikigai-highlight">IKIGAI</strong> 39 câu hỏi dựa trên triết lý Nhật Bản giúp bạn tìm
+          ra ngành nghề phù hợp nhất — nơi giao thoa giữa <em>đam mê, năng lực, sứ mệnh</em> và <em>giá trị thị
+            trường</em>.</p>
+      </div>
+
+      <!-- Ikigai Diagram -->
+      <div class="ikigai-diagram">
+        <div class="ikigai-circle ikigai-love"><span>❤️</span>Đam mê</div>
+        <div class="ikigai-circle ikigai-good"><span>⚡</span>Năng lực</div>
+        <div class="ikigai-circle ikigai-need"><span>🌍</span>Sứ mệnh</div>
+        <div class="ikigai-circle ikigai-paid"><span>💰</span>Thị trường</div>
+        <div class="ikigai-center">
+          <span class="ikigai-center-text">IKIGAI</span>
+          <span class="ikigai-center-sub">生き甲斐</span>
+        </div>
+        <!-- Intersection labels -->
+        <div class="ikigai-zone-label zone-passion">Passion</div>
+        <div class="ikigai-zone-label zone-mission">Mission</div>
+        <div class="ikigai-zone-label zone-profession">Profession</div>
+        <div class="ikigai-zone-label zone-vocation">Vocation</div>
+      </div>
+
+      <div class="intro-features">
+        <div class="intro-feature">
+          <div class="feature-icon">📝</div>
+          <h4>39 Câu Hỏi <span class="ikigai-highlight">IKIGAI</span></h4>
+          <p>Đánh giá toàn diện 4 trụ cột theo triết lý Nhật Bản</p>
+        </div>
+        <div class="intro-feature">
+          <div class="feature-icon">🎯</div>
+          <h4>Career Matching</h4>
+          <p>AI gợi ý ngành nghề phù hợp nhất với <span class="ikigai-highlight">IKIGAI</span> của bạn</p>
+        </div>
+        <div class="intro-feature">
+          <div class="feature-icon">📊</div>
+          <h4>Radar Chart</h4>
+          <p>Biểu đồ năng lực <span class="ikigai-highlight">IKIGAI</span> trực quan</p>
+        </div>
+        <div class="intro-feature">
+          <div class="feature-icon">🧭</div>
+          <h4>Tìm Mentor</h4>
+          <p>Gợi ý mentor phù hợp với career path của bạn</p>
+        </div>
+      </div>
+
+      <button id="btn-start" class="btn btn-primary btn-start-ikigai" style="width:100%; margin-top:8px;">
+        🚀 Bắt đầu khám phá <strong>IKIGAI</strong> của bạn
+      </button>
+      <p style="text-align:center; font-size:0.78rem; color:var(--text-muted); margin-top:12px;">⏱ Khoảng 7 phút · 39
+        câu hỏi · 100% miễn phí · Kết quả tức thì</p>
+    </div>
+
+    <!-- ===================== SCREEN 2: SURVEY ===================== -->
+    <div id="screen-survey" class="screen">
+      <div class="survey-header">
+        <span class="ikigai-logo-small">IKIGAI</span>
+        <span class="survey-header-sep">·</span>
+        <span class="survey-header-title">Test Hướng Nghiệp</span>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-container">
+        <div class="progress-info">
+          <span class="progress-label" id="progress-label">Câu 0/39</span>
+          <span class="progress-percent" id="progress-percent">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Pillar Tabs -->
+      <div class="axis-tabs" id="pillar-tabs">
+        <button class="axis-tab active" data-pillar="love">
+          <span class="tab-icon">❤️</span>Đam mê
+        </button>
+        <button class="axis-tab" data-pillar="good">
+          <span class="tab-icon">⚡</span>Năng lực
+        </button>
+        <button class="axis-tab" data-pillar="need">
+          <span class="tab-icon">🌍</span>Sứ mệnh
+        </button>
+        <button class="axis-tab" data-pillar="paid">
+          <span class="tab-icon">💰</span>Thị trường
+        </button>
+      </div>
+
+      <!-- Questions Container -->
+      <div id="questions-container" class="question-section"></div>
+
+      <!-- Navigation -->
+      <div class="nav-buttons">
+        <button id="btn-prev" class="btn btn-secondary" style="display:none;">← Quay lại</button>
+        <button id="btn-next" class="btn btn-primary" disabled>Tiếp theo →</button>
+      </div>
+    </div>
+
+    <!-- ===================== SCREEN 3: RESULTS ===================== -->
+    <div id="screen-results" class="screen">
+      <!-- Results Ikigai Header -->
+      <div class="results-ikigai-header">
+        <div class="ikigai-brand">
+          <span class="ikigai-logo-text">IKIGAI</span>
+          <span class="ikigai-logo-jp">生き甲斐</span>
+        </div>
+        <div class="results-ikigai-sub">Kết quả phân tích hướng nghiệp</div>
+      </div>
+
+      <!-- Results Header -->
+      <div class="results-header">
+        <span class="archetype-icon">🎯</span>
+        <h2>Bản Đồ <span class="ikigai-highlight">IKIGAI</span> Của Bạn</h2>
+        <p class="archetype-tagline">Dựa trên 39 câu trả lời</p>
+      </div>
+
+      <!-- Ikigai Score Summary -->
+      <div class="score-summary">
+        <div class="score-item score-love">
+          <div class="score-icon">❤️</div>
+          <div class="score-value" id="score-love">0</div>
+          <div class="score-label">Đam mê</div>
+        </div>
+        <div class="score-item score-good">
+          <div class="score-icon">⚡</div>
+          <div class="score-value" id="score-good">0</div>
+          <div class="score-label">Năng lực</div>
+        </div>
+        <div class="score-item score-need">
+          <div class="score-icon">🌍</div>
+          <div class="score-value" id="score-need">0</div>
+          <div class="score-label">Sứ mệnh</div>
+        </div>
+        <div class="score-item score-paid">
+          <div class="score-icon">💰</div>
+          <div class="score-value" id="score-paid">0</div>
+          <div class="score-label">Thị trường</div>
+        </div>
+      </div>
+
+      <!-- Radar Chart -->
+      <div class="chart-container">
+        <h3>📊 Biểu đồ <span class="ikigai-highlight">IKIGAI</span></h3>
+        <canvas id="radar-chart"></canvas>
+      </div>
+
+      <!-- Ikigai Zone Analysis -->
+      <div class="analysis-card" id="ikigai-zone-card">
+        <h3>🧬 Vùng <span class="ikigai-highlight">IKIGAI</span> của bạn</h3>
+        <p id="ikigai-zone-text"></p>
+      </div>
+
+      <!-- ===== CAREER SUGGESTIONS BOARD ===== -->
+      <div class="career-section">
+        <h3 class="section-title">🎯 Ngành nghề phù hợp với <span class="ikigai-highlight">IKIGAI</span> của bạn</h3>
+        <p class="section-subtitle">Xếp hạng theo mức độ phù hợp với hồ sơ IKIGAI · Nhấn để xem chi tiết</p>
+        <div id="career-board" class="career-board"></div>
+      </div>
+
+      <!-- DETAILED TOP CAREER -->
+      <div class="analysis-card" id="top-career-card" style="border-color: rgba(0,212,255,0.2);">
+        <h3>🏆 Ngành nghề #1 phù hợp nhất</h3>
+        <div id="top-career-detail"></div>
+      </div>
+
+      <!-- ===== MENTOR SUGGESTIONS ===== -->
+      <div class="mentor-section">
+        <h3 class="section-title">🧭 Mentor gợi ý theo <span class="ikigai-highlight">IKIGAI</span></h3>
+        <p class="section-subtitle">Những mentor phù hợp với career path của bạn</p>
+        <div id="mentor-board" class="mentor-board"></div>
+      </div>
+
+      <!-- EMAIL CAPTURE -->
+      <div class="analysis-card"
+        style="text-align:center; border-color: rgba(124,58,237,0.2); background: linear-gradient(135deg, rgba(124,58,237,0.06), rgba(0,212,255,0.06));">
+        <h3 style="justify-content:center;">📬 Nhận báo cáo <span class="ikigai-highlight">IKIGAI</span> chi tiết</h3>
+        <p style="margin-bottom:16px;">Nhập email để nhận bản PDF báo cáo đầy đủ, bao gồm roadmap nghề nghiệp và danh
+          sách mentor phù hợp.</p>
+        <div style="display:flex; gap:8px; max-width:400px; margin:0 auto;">
+          <input type="email" id="result-email" placeholder="your@email.com"
+            style="flex:1; padding:12px 16px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); border-radius:var(--radius-md); color:var(--text-primary); font-family:inherit; font-size:0.9rem; outline:none;">
+          <button class="btn btn-primary" id="btn-save-email" style="flex:0 0 auto; padding:12px 20px;">Gửi</button>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <button class="btn btn-cta" id="btn-buy-course" style="width:100%; margin-bottom:12px;">
+          🎓 Khoá Học Định Hướng Nghề Nghiệp theo <strong>IKIGAI</strong> — 1.990k
+        </button>
+        <button class="btn btn-primary" id="btn-book-mentor" style="width:100%; margin-bottom:12px;">
+          🧭 Đặt lịch Coaching 1:1 với Mentor — Từ 350k
+        </button>
+        <button class="btn btn-secondary" id="btn-share" style="width:100%;">
+          📤 Chia sẻ kết quả <strong>IKIGAI</strong> với bạn bè
+        </button>
+        <p class="cta-label">Thanh toán an toàn · Hoàn tiền 100% trong 7 ngày</p>
+      </div>
+
+      <!-- JSON Toggle -->
+      <button class="json-toggle" id="json-toggle">{ } Xem dữ liệu JSON</button>
+      <div class="json-output hidden" id="json-output">
+        <pre id="json-content"></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EMAIL MODAL (appears at ~75%) -->
+  <div class="modal-overlay" id="email-modal">
+    <div class="modal">
+      <div class="modal-badge">🎉 ĐÃ HOÀN THÀNH 75%</div>
+      <h2>Kết quả <span class="ikigai-highlight">IKIGAI</span> sắp sẵn sàng!</h2>
+      <p>Nhập email để nhận <strong>Bản đồ IKIGAI</strong> cùng gợi ý ngành nghề và mentor phù hợp — hoàn toàn miễn phí.
+      </p>
+      <div class="modal-input-group">
+        <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email">
+        <button class="btn btn-primary" id="btn-submit-email">Nhận kết quả IKIGAI →</button>
+      </div>
+      <button class="modal-skip" id="btn-skip-email">Bỏ qua, tiếp tục</button>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="careers.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
