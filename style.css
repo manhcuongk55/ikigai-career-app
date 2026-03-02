@@ -1198,6 +1198,25 @@ body {
   line-height: 1.4;
 }
 
+/* Email Capture Row */
+.email-capture-row {
+  display: flex;
+  gap: 8px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .email-capture-row {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .email-capture-row .btn {
+    width: 100%;
+  }
+}
+
 /* CTA Section */
 .cta-section {
   text-align: center;
@@ -1247,53 +1266,514 @@ body {
   border-color: var(--accent-cyan);
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 640px) {
+/* ===== Responsive — Tablet ===== */
+@media (max-width: 768px) {
   .app-container {
-    padding: 12px;
+    padding: 16px;
+    max-width: 100%;
   }
 
   .header h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  .header p {
+    font-size: 0.9rem;
   }
 
   .score-summary {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
-  .intro-features {
+  .mentor-board {
     grid-template-columns: 1fr;
   }
 
-  .modal {
-    padding: 28px;
+  .chart-container canvas {
+    max-height: 280px;
   }
 
-  .axis-tab {
-    font-size: 0.65rem;
-    padding: 8px 4px;
+  .results-header h2 {
+    font-size: 1.6rem;
   }
 
-  .rating-btn {
-    max-width: 48px;
+  .btn-cta {
     font-size: 0.95rem;
+    padding: 16px 24px;
+  }
+}
+
+/* ===== Responsive — Mobile ===== */
+@media (max-width: 640px) {
+  html {
+    font-size: 15px;
   }
 
+  .app-container {
+    padding: 12px;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+
+  /* --- Header --- */
+  .header {
+    padding: 24px 0 16px;
+  }
+
+  .header h1 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+  }
+
+  .header p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding: 0 4px;
+  }
+
+  /* --- Ikigai Hero --- */
+  .ikigai-hero {
+    padding: 32px 0 12px;
+  }
+
+  .ikigai-logo-text {
+    font-size: 2.4rem;
+    letter-spacing: 10px;
+  }
+
+  .ikigai-logo-jp {
+    font-size: 0.85rem;
+    letter-spacing: 5px;
+  }
+
+  .ikigai-tagline {
+    font-size: 0.82rem;
+  }
+
+  /* --- Ikigai Diagram --- */
   .ikigai-diagram {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
+    margin: 24px auto;
   }
 
   .ikigai-circle {
-    width: 100px;
-    height: 100px;
-    font-size: 0.65rem;
+    width: 105px;
+    height: 105px;
+    font-size: 0.62rem;
+  }
+
+  .ikigai-circle span {
+    font-size: 1.1rem;
   }
 
   .ikigai-center {
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .ikigai-center-text {
     font-size: 0.65rem;
+    letter-spacing: 2px;
+  }
+
+  .ikigai-center-sub {
+    font-size: 0.45rem;
+  }
+
+  .ikigai-zone-label {
+    font-size: 0.48rem;
+  }
+
+  /* --- Intro Features --- */
+  .intro-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  .intro-feature {
+    padding: 14px 12px;
+  }
+
+  .intro-feature .feature-icon {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+
+  .intro-feature h4 {
+    font-size: 0.78rem;
+  }
+
+  .intro-feature p {
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+
+  /* --- Start Button --- */
+  .btn-start-ikigai {
+    font-size: 0.95rem;
+    padding: 14px 24px;
+  }
+
+  /* --- Pillar Tabs --- */
+  .axis-tabs {
+    gap: 4px;
+    padding: 3px;
+    margin-bottom: 16px;
+  }
+
+  .axis-tab {
+    font-size: 0.63rem;
+    padding: 8px 4px;
+    border-radius: 6px;
+  }
+
+  .axis-tab .tab-icon {
+    font-size: 1rem;
+    margin-bottom: 1px;
+  }
+
+  /* --- Survey --- */
+  .survey-header {
+    padding: 12px 0 4px;
+  }
+
+  .question-card {
+    padding: 18px 14px;
+    margin-bottom: 12px;
+  }
+
+  .question-number {
+    font-size: 0.7rem;
+  }
+
+  .question-text {
+    font-size: 0.92rem;
+    margin-bottom: 16px;
+    line-height: 1.45;
+  }
+
+  /* --- Rating Buttons (touch-friendly) --- */
+  .rating-scale {
+    gap: 6px;
+  }
+
+  .rating-btn {
+    max-width: 52px;
+    min-height: 44px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .rating-labels {
+    font-size: 0.65rem;
+    margin-top: 6px;
+  }
+
+  /* --- Nav Buttons --- */
+  .nav-buttons {
+    gap: 8px;
+    margin-top: 20px;
+    padding-bottom: 24px;
+  }
+
+  .btn {
+    padding: 13px 16px;
+    font-size: 0.88rem;
+    min-height: 48px;
+  }
+
+  /* --- Modal --- */
+  .modal {
+    padding: 24px 20px;
+    width: 94%;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-badge {
+    font-size: 0.72rem;
+    padding: 5px 12px;
+  }
+
+  .modal h2 {
+    font-size: 1.25rem;
+  }
+
+  .modal p {
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+  }
+
+  .modal-input-group input {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  /* --- Results Header --- */
+  .results-ikigai-header {
+    padding: 16px 0 4px;
+  }
+
+  .results-ikigai-header .ikigai-brand .ikigai-logo-text {
+    font-size: 1.8rem;
+    letter-spacing: 8px;
+  }
+
+  .results-ikigai-header .ikigai-logo-jp {
+    font-size: 0.75rem;
+  }
+
+  .results-ikigai-sub {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  .results-header .archetype-icon {
+    font-size: 3rem;
+  }
+
+  .results-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .results-header .archetype-tagline {
+    font-size: 0.88rem;
+  }
+
+  /* --- Score Summary --- */
+  .score-summary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .score-item {
+    padding: 14px 10px;
+    border-radius: 10px;
+  }
+
+  .score-item .score-icon {
+    font-size: 1.2rem;
+  }
+
+  .score-item .score-value {
+    font-size: 1.4rem;
+  }
+
+  .score-item .score-label {
+    font-size: 0.65rem;
+  }
+
+  /* --- Chart --- */
+  .chart-container {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .chart-container h3 {
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+  }
+
+  .chart-container canvas {
+    max-height: 250px;
+  }
+
+  /* --- Analysis Card --- */
+  .analysis-card {
+    padding: 18px 16px;
+    margin-bottom: 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .analysis-card h3 {
+    font-size: 0.92rem;
+    gap: 6px;
+  }
+
+  .analysis-card p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  /* --- Career Board --- */
+  .career-section {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.78rem;
+    margin-bottom: 12px;
+  }
+
+  .career-board {
+    gap: 10px;
+  }
+
+  .career-card {
+    padding: 16px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .career-card:hover {
+    transform: none;
+  }
+
+  .career-card-header {
+    gap: 10px;
+  }
+
+  .career-card-icon {
+    font-size: 1.6rem;
+  }
+
+  .career-card-name {
+    font-size: 0.9rem;
+  }
+
+  .career-card-category {
+    font-size: 0.7rem;
+  }
+
+  .career-card-match {
+    font-size: 1.1rem;
+    padding: 3px 10px;
+    min-width: 52px;
+  }
+
+  .career-card-desc {
+    font-size: 0.82rem;
+  }
+
+  .career-card-meta {
+    gap: 8px;
+    font-size: 0.72rem;
+  }
+
+  .career-skill-tag {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  /* --- Top Career Detail --- */
+  #top-career-detail .top-career-header {
+    gap: 12px;
+  }
+
+  #top-career-detail .top-career-icon {
+    font-size: 2.2rem;
+  }
+
+  #top-career-detail .top-career-name {
+    font-size: 1.1rem;
+  }
+
+  #top-career-detail .top-career-cat {
+    font-size: 0.78rem;
+  }
+
+  /* --- Mentor Board --- */
+  .mentor-section {
+    margin-bottom: 24px;
+  }
+
+  .mentor-card {
+    padding: 16px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .mentor-card:hover {
+    transform: none;
+  }
+
+  .mentor-card-header {
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .mentor-avatar {
+    font-size: 2rem;
+    width: 46px;
+    height: 46px;
+  }
+
+  .mentor-name {
+    font-size: 0.92rem;
+  }
+
+  .mentor-title {
+    font-size: 0.75rem;
+  }
+
+  .mentor-bio {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .mentor-stats {
+    gap: 10px;
+    font-size: 0.72rem;
+  }
+
+  .mentor-tag {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .mentor-cta {
+    padding: 10px;
+    font-size: 0.82rem;
+    min-height: 44px;
+  }
+
+  /* --- CTA Section --- */
+  .cta-section {
+    padding: 16px 0 40px;
+  }
+
+  .btn-cta {
+    font-size: 0.92rem;
+    padding: 15px 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .cta-section .cta-label {
+    font-size: 0.72rem;
+  }
+
+  /* --- Email Capture (inline results) --- */
+  #screen-results .analysis-card div[style*="display:flex"] {
+    flex-direction: column;
+    max-width: 100% !important;
+  }
+
+  /* --- JSON Toggle --- */
+  .json-toggle {
+    font-size: 0.75rem;
+    padding: 8px 14px;
+  }
+
+  .json-output pre {
+    font-size: 0.7rem;
+    max-height: 200px;
+  }
+
+  /* --- Progress Bar --- */
+  .progress-container {
+    margin: 14px 0;
+  }
+
+  .progress-info {
+    font-size: 0.8rem;
+  }
+
+  .progress-percent {
+    font-size: 0.88rem;
   }
 }
 
@@ -1600,38 +2080,107 @@ body {
   }
 }
 
-/* Mobile adjustments for IKIGAI brand */
-@media (max-width: 640px) {
+/* ===== Responsive — Small Phones ===== */
+@media (max-width: 380px) {
+  html {
+    font-size: 14px;
+  }
+
+  .app-container {
+    padding: 10px;
+  }
+
   .ikigai-logo-text {
-    font-size: 2.5rem;
-    letter-spacing: 10px;
+    font-size: 2rem;
+    letter-spacing: 8px;
   }
 
   .ikigai-logo-jp {
-    font-size: 0.9rem;
-    letter-spacing: 5px;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
   }
 
   .ikigai-diagram {
-    width: 210px;
-    height: 210px;
+    width: 180px;
+    height: 180px;
   }
 
   .ikigai-circle {
-    width: 110px;
-    height: 110px;
+    width: 95px;
+    height: 95px;
+    font-size: 0.58rem;
+  }
+
+  .ikigai-circle span {
+    font-size: 1rem;
   }
 
   .ikigai-center {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
   }
 
   .ikigai-center-text {
-    font-size: 0.7rem;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+  }
+
+  .intro-features {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .axis-tab {
+    font-size: 0.58rem;
+    padding: 6px 3px;
+  }
+
+  .axis-tab .tab-icon {
+    font-size: 0.9rem;
+  }
+
+  .question-card {
+    padding: 14px 12px;
+  }
+
+  .question-text {
+    font-size: 0.85rem;
+  }
+
+  .rating-btn {
+    max-width: 46px;
+    min-height: 42px;
+    font-size: 0.92rem;
   }
 
   .results-ikigai-header .ikigai-brand .ikigai-logo-text {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    letter-spacing: 6px;
+  }
+
+  .results-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .score-item .score-value {
+    font-size: 1.2rem;
+  }
+
+  .btn-cta {
+    font-size: 0.85rem;
+    padding: 14px 16px;
+  }
+
+  .modal {
+    padding: 20px 16px;
+    width: 96%;
+  }
+
+  .modal h2 {
+    font-size: 1.1rem;
   }
 }
